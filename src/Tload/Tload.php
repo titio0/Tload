@@ -4,6 +4,8 @@ namespace Tload;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
+use pocketmine\level;
+use pocketmine\event\LevelLoadEvent;
 
 class Tload extends PluginBase implements Listener {
 
@@ -11,7 +13,8 @@ class Tload extends PluginBase implements Listener {
       $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
   }    
 
-  public function loadLevel(string $name) : bool{
-    $this->getServer()->loadLevel (flat);
+  public function LevelLoadEvent(string $name) : bool{
+    $name = "flat"
+    $this->getServer()->loadLevel($name);
   }  
 }
