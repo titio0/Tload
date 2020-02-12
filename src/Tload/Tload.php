@@ -9,7 +9,9 @@ class Tload extends PluginBase implements Listener {
 
    public function onEnable() {
       $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
-   }
-   if(! $this->getServer()->getLevelManager()->getLevelByName(flat) instanceof Level)
-   $this->getServer()->getLevelManager()->loadLevel(flat);
+  }    
+
+  public function loadLevel(string $name) : bool{
+    $this->getServer()->loadLevel (flat);
+  }  
 }
