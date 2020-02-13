@@ -11,10 +11,9 @@ class Tload extends PluginBase implements Listener {
 
    public function onEnable() {
       $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
-      if(!$this->getServer()->isLevelLoaded(flat)){
-        if($this->getServer()->loadLevel(flat)){
+      if(!$this->getServer()->getLevelManager()->getLevelByName("flat") instanceof Level):bool {
+          $this->getServer()->getLevelManager()->loadLevel("flat");
           $this->getLogger ()->alert("flat맵 로드완료!");
-        }
       }
    }
 }
