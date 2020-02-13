@@ -4,17 +4,17 @@ namespace Tload;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\level;
-use pocketmine\event\LevelLoadEvent;
+use pocketmine\level\Level;
+use pocketmine\Player;
 
 class Tload extends PluginBase implements Listener {
 
    public function onEnable() {
       $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
-  }    
-
-  public function LevelLoadEvent(string $name) : bool{
-    $name = "flat"
-    $this->getServer()->loadLevel($name);
-  }  
+      if(!$this->owner->getServer()->isLevelLoaded(flat)){
+        if($this->owner->getServer()->loadLevel(flat)){
+          $this->getLogger ()->alert("flat맵 로드완료!");
+        }
+      }
+   }
 }
